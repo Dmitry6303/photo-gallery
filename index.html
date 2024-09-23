@@ -6,6 +6,14 @@
         <title>Photo gallery</title>
 
         <link rel="stylesheet" href="./css/main.css" />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css"
+            integrity="sha512-F2E+YYE1gkt0T5TVajAslgDfTEUQKtlu4ralVq78ViNxhKXQLrgQLLie8u1tVdG2vWnB3ute4hcdbiBtvJQh0g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
     </head>
     <body>
         <input type="radio" name="photos" id="check1" checked />
@@ -24,54 +32,54 @@
             </div>
 
             <div class="photo-gallery">
-                <div class="pic landscape">
+                <a href="./img/1.jpg" class="pic landscape">
                     <img src="./img/1.jpg" alt="" />
-                </div>
-                <div class="pic landscape">
+                </a>
+                <a href="./img/2.jpg" class="pic landscape">
                     <img src="./img/2.jpg" alt="" />
-                </div>
-                <div class="pic landscape">
+                </a>
+                <a href="./img/3.jpg" class="pic landscape">
                     <img src="./img/3.jpg" alt="" />
-                </div>
-                <div class="pic place">
+                </a>
+                <a href="./img/6.jpg" class="pic place">
                     <img src="./img/6.jpg" alt="" />
-                </div>
-                <div class="pic landscape">
+                </a>
+                <a href="./img/5.jpg" class="pic landscape">
                     <img src="./img/5.jpg" alt="" />
-                </div>
-                <div class="pic landscape">
+                </a>
+                <a href="./img/8.jpg" class="pic landscape">
                     <img src="./img/8.jpg" alt="" />
-                </div>
-                <div class="pic landscape">
+                </a>
+                <a href="./img/9.jpg" class="pic landscape">
                     <img src="./img/9.jpg" alt="" />
-                </div>
-                <div class="pic place">
+                </a>
+                <a href="./img/11.jpg" class="pic place">
                     <img src="./img/11.jpg" alt="" />
-                </div>
-                <div class="pic place">
+                </a>
+                <a href="./img/12.jpg" class="pic place">
                     <img src="./img/12.jpg" alt="" />
-                </div>
-                <div class="pic landscape">
+                </a>
+                <a href="./img/13.jpg" class="pic landscape">
                     <img src="./img/13.jpg" alt="" />
-                </div>
-                <div class="pic place">
+                </a>
+                <a href="./img/14.jpg" class="pic place">
                     <img src="./img/14.jpg" alt="" />
-                </div>
-                <div class="pic place">
+                </a>
+                <a href="./img/15.jpg" class="pic place">
                     <img src="./img/15.jpg" alt="" />
-                </div>
-                <div class="pic place">
+                </a>
+                <a href="./img/16.jpg" class="pic place">
                     <img src="./img/16.jpg" alt="" />
-                </div>
-                <div class="pic place">
+                </a>
+                <a href="./img/17.jpg" class="pic place">
                     <img src="./img/17.jpg" alt="" />
-                </div>
-                <div class="pic place">
+                </a>
+                <a href="./img/18.jpg" class="pic place">
                     <img src="./img/18.jpg" alt="" />
-                </div>
-                <div class="pic animal">
+                </a>
+                <a href="./img/19.jpg" class="pic animal">
                     <img src="./img/19.jpg" alt="" />
-                </div>
+                </a>
             </div>
         </div>
         <!--
@@ -90,5 +98,11 @@
             </div>
         </div>
         -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+
+        <script>
+            lightGallery(document.querySelector(".photo-gallery"));
+        </script>
     </body>
 </html>
