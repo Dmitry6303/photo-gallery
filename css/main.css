@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #171718;
+}
+input {
+    display: none;
+}
+.container {
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 35px;
+    position: relative;
+    margin: 40px 0;
+    white-space: nowrap;
+}
+h1::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: green;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: animate 4s linear infinite;
+}
+@keyframes animate {
+    0% {
+        width: 100px;
+    }
+    50% {
+        width: 220px;
+    }
+    100% {
+        width: 100px;
+    }
+}
+
+.top-content {
+    background-color: lightgray;
+    border-top: 2px solid #26292d;
+    width: 90%;
+    margin: 0 auto 20px auto;
+    color: black;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 5px;
+    /* box-shadow: 3px 3px 5px lightgray;*/
+}
+
+h3 {
+    height: 100%;
+    line-height: 60px;
+    padding: 0 50px;
+    color: white;
+    background-color: green;
+    opacity: 50%;
+
+    font-size: 20px;
+    font-weight: bold;
+    font-family: system-ui;
+
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+label {
+    display: inline-block;
+    height: 100%;
+    padding: 0 10px;
+    margin: 0 15px;
+    line-height: 60px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.5s;
+    color: black;
+    font-style: italic;
+}
+label:hover {
+    color: green;
+}
+.photo-gallery {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.pic img {
+    height: 100%;
+    width: 100%;
+}
+/*
+:root {
+    --index: calc(1vw + 1vh);
+    --transition: cubic-bezier(0.1, 0.7, 0, 1);
+}
+body {
+    background-color: white;
+}
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.items {
+    display: flex;
+    gap: 0.4rem;
+    perspective: calc(var(--index) * 35);
+}
+.item {
+    background-color: #222;
+    width: calc(var(--index) * 3);
+    height: calc(var(--index) * 12);
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 1.25s var(--transition), filter 3s var(--transition), width 1.25s var(--transition);
+    will-change: transform, filter;
+    filter: grayscale() brightness(0.5);
+}
+.item::before,
+.item::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    right: calc(var(--index) * -1);
+}
+.item::after {
+    left: calc(var(--index) * -1);
+}
+.items .item:hover {
+    transform: translateZ(calc(var(--index) * 10));
+    filter: inherit;
+}*/
+
+/* Right */
+/*
+.items .item:hover + * {
+    transform: translateZ(calc(var(--index) * 8.5)) rotateY(35deg);
+    filter: inherit;
+    z-index: -1;
+}
+.items .item:hover + * + * {
+    transform: translateZ(calc(var(--index) * 5.6)) rotateY(40deg);
+    filter: inherit;
+    z-index: -2;
+}
+.items .item:hover + * + * + * {
+    transform: translateZ(calc(var(--index) * 2.4)) rotateY(30deg);
+    filter: inherit;
+    z-index: -3;
+}
+.items .item:hover + * + * + * + * {
+    transform: translateZ(calc(var(--index) * 0.6)) rotateY(14deg);
+    filter: inherit;
+    z-index: -4;
+}*/
+
+/* Left */
+/*
+.item:has(+ :hover) {
+    transform: translateZ(calc(var(--index) * 8.5)) rotateY(-35deg);
+    filter: inherit;
+}
+.item:has(+ * + :hover) {
+    transform: translateZ(calc(var(--index) * 5.6)) rotateY(-40deg);
+    filter: inherit;
+}
+.item:has(+ * + * + :hover) {
+    transform: translateZ(calc(var(--index) * 2.4)) rotateY(-30deg);
+    filter: inherit;
+}
+.item:has(+ * + * + * + :hover) {
+    transform: translateZ(calc(var(--index) * 0.6)) rotateY(-14deg);
+    filter: inherit;
+}
+
+.items .item:active,
+.items .item:focus {
+    width: 28vw;
+    transform: translateZ(calc(var(--index) * 10));
+    filter: inherit;
+    z-index: 100;
+    margin: 0 0.45vw;
+}*/
