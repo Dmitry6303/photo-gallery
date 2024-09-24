@@ -17,8 +17,30 @@
         <input type="radio" name="photos" id="check3" />
         <input type="radio" name="photos" id="check4" />
 
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-row">
+                    <button class="dark-mode-btn">
+                        <img src="./img/icons/Sun.svg" alt="light-mode" class="dark-mode-btn__icon" />
+                        <img src="./img/icons/Moon.svg" alt="dark-mode" class="dark-mode-btn__icon" />
+                    </button>
+
+                    <a href="./index.html" class="logo"><strong>Epic</strong> photo-gallery</a>
+
+                    <ul class="nav-list">
+                        <li class="nav-list__item">
+                            <a href="./about.html" class="nav-list__link">About</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav__burger">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
         <div class="container">
-            <h1>Photo Gallery</h1>
             <div class="top-content">
                 <h3>Photos</h3>
                 <label for="check1">All</label>
@@ -26,7 +48,9 @@
                 <label for="check3">Animals</label>
                 <label for="check4">Other</label>
             </div>
+        </div>
 
+        <div class="container">
             <div class="photo-gallery">
                 <a href="./img/1.jpg" class="pic landscape">
                     <img src="./img/icons/1i.jpg" alt="" />
@@ -78,22 +102,28 @@
                 </a>
             </div>
         </div>
-        <!--
-        <div class="wrapper">
-            <div class="items">
-                <div class="item" tabindex="1" style="background-image: url(./img/1.jpg)"></div>
-                <div class="item" tabindex="1" style="background-image: url(./img/2.jpg)"></div>
-                <div class="item" tabindex="1" style="background-image: url(./img/30.jpg)"></div>
-                <div class="item" tabindex="1" style="background-image: url(./img/4.jpg)"></div>
-                <div class="item" tabindex="1" style="background-image: url(./img/29.jpg)"></div>
-                <div class="item" tabindex="1" style="background-image: url(./img/28.jpg)"></div>
-                <div class="item" tabindex="1" style="background-image: url(./img/7.jpg)"></div>
-                <div class="item" tabindex="1" style="background-image: url(./img/27.jpg)"></div>
-                <div class="item" tabindex="1" style="background-image: url(./img/26.jpg)"></div>
-                <div class="item" tabindex="1" style="background-image: url(./img/20.jpg)"></div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__wrapper">
+                    <ul class="social">
+                        <li class="social__item">
+                            <a href="https://www.instagram.com/bear25grylls/" target="_blank">
+                                <img src="./img/icons/instagram.svg" alt="instagram"
+                            /></a>
+                        </li>
+                    </ul>
+
+                    <div class="copyright">
+                        <p>@ 2024 my-site.com</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        -->
+        </footer>
+
+        <script src="./js/jquery-3.7.1.min.js"></script>
+        <script src="./js/main.js"></script>
+        <script src="./js/dark-theme.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/fullscreen/lg-fullscreen.min.js"></script>

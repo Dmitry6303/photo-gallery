@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Photo gallery</title>
+
+        <link type="image/x-icon" href="/img/icons/favicon-16x16.png" rel="shortcut icon" />
+        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="./css/about.css" />
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-row">
+                    <button class="dark-mode-btn">
+                        <img src="./img/icons/Sun.svg" alt="light-mode" class="dark-mode-btn__icon" />
+                        <img src="./img/icons/Moon.svg" alt="dark-mode" class="dark-mode-btn__icon" />
+                    </button>
+
+                    <a href="./index.html" class="logo"><strong>Epic</strong> photo-gallery</a>
+
+                    <ul class="nav-list">
+                        <li class="nav-list__item">
+                            <a href="./about.html" class="nav-list__link nav-list__link--active">About</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav__burger">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="wrapper">
+            <div class="items">
+                <div class="item" tabindex="1" style="background-image: url(./img/1.jpg)"></div>
+                <div class="item" tabindex="1" style="background-image: url(./img/2.jpg)"></div>
+                <div class="item" tabindex="1" style="background-image: url(./img/30.jpg)"></div>
+                <div class="item" tabindex="1" style="background-image: url(./img/4.jpg)"></div>
+                <div class="item" tabindex="1" style="background-image: url(./img/29.jpg)"></div>
+                <div class="item" tabindex="1" style="background-image: url(./img/28.jpg)"></div>
+                <div class="item" tabindex="1" style="background-image: url(./img/7.jpg)"></div>
+                <div class="item" tabindex="1" style="background-image: url(./img/27.jpg)"></div>
+                <div class="item" tabindex="1" style="background-image: url(./img/26.jpg)"></div>
+                <div class="item" tabindex="1" style="background-image: url(./img/20.jpg)"></div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__wrapper">
+                    <ul class="social">
+                        <li class="social__item">
+                            <a href="https://www.instagram.com/bear25grylls/" target="_blank">
+                                <img src="./img/icons/instagram.svg" alt="instagram"
+                            /></a>
+                        </li>
+                    </ul>
+
+                    <div class="copyright">
+                        <p>@ 2024 my-site.com</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="./js/jquery-3.7.1.min.js"></script>
+        <script src="./js/main.js"></script>
+        <script src="./js/dark-theme.js"></script>
+    </body>
+</html>
