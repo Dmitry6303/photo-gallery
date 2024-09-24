@@ -5,15 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Photo gallery</title>
 
+        <link type="image/x-icon" href="/img/icons/favicon-16x16.png" rel="shortcut icon" />
         <link rel="stylesheet" href="./css/main.css" />
-
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css"
-            integrity="sha512-F2E+YYE1gkt0T5TVajAslgDfTEUQKtlu4ralVq78ViNxhKXQLrgQLLie8u1tVdG2vWnB3ute4hcdbiBtvJQh0g=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-fullscreen.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-zoom.min.css" />
     </head>
     <body>
         <input type="radio" name="photos" id="check1" checked />
@@ -33,52 +29,52 @@
 
             <div class="photo-gallery">
                 <a href="./img/1.jpg" class="pic landscape">
-                    <img src="./img/1.jpg" alt="" />
+                    <img src="./img/icons/1i.jpg" alt="" />
                 </a>
-                <a href="./img/2.jpg" class="pic landscape">
-                    <img src="./img/2.jpg" alt="" />
+                <a href="./img/29.jpg" class="pic landscape">
+                    <img src="./img/icons/29i.jpg" alt="" />
                 </a>
                 <a href="./img/3.jpg" class="pic landscape">
-                    <img src="./img/3.jpg" alt="" />
+                    <img src="./img/icons/3i.jpg" alt="" />
                 </a>
                 <a href="./img/6.jpg" class="pic place">
-                    <img src="./img/6.jpg" alt="" />
+                    <img src="./img/icons/6i.jpg" alt="" />
                 </a>
                 <a href="./img/5.jpg" class="pic landscape">
-                    <img src="./img/5.jpg" alt="" />
+                    <img src="./img/icons/5i.jpg" alt="" />
                 </a>
                 <a href="./img/8.jpg" class="pic landscape">
-                    <img src="./img/8.jpg" alt="" />
+                    <img src="./img/icons/8i.jpg" alt="" />
                 </a>
                 <a href="./img/9.jpg" class="pic landscape">
-                    <img src="./img/9.jpg" alt="" />
+                    <img src="./img/icons/9i.jpg" alt="" />
                 </a>
                 <a href="./img/11.jpg" class="pic place">
-                    <img src="./img/11.jpg" alt="" />
+                    <img src="./img/icons/11i.jpg" alt="" />
                 </a>
                 <a href="./img/12.jpg" class="pic place">
-                    <img src="./img/12.jpg" alt="" />
+                    <img src="./img/icons/12i.jpg" alt="" />
                 </a>
                 <a href="./img/13.jpg" class="pic landscape">
-                    <img src="./img/13.jpg" alt="" />
+                    <img src="./img/icons/13i.jpg" alt="" />
                 </a>
                 <a href="./img/14.jpg" class="pic place">
-                    <img src="./img/14.jpg" alt="" />
+                    <img src="./img/icons/14i.jpg" alt="" />
                 </a>
                 <a href="./img/15.jpg" class="pic place">
-                    <img src="./img/15.jpg" alt="" />
+                    <img src="./img/icons/15i.jpg" alt="" />
                 </a>
                 <a href="./img/16.jpg" class="pic place">
-                    <img src="./img/16.jpg" alt="" />
+                    <img src="./img/icons/16i.jpg" alt="" />
                 </a>
                 <a href="./img/17.jpg" class="pic place">
-                    <img src="./img/17.jpg" alt="" />
+                    <img src="./img/icons/17i.jpg" alt="" />
                 </a>
                 <a href="./img/18.jpg" class="pic place">
-                    <img src="./img/18.jpg" alt="" />
+                    <img src="./img/icons/18i.jpg" alt="" />
                 </a>
                 <a href="./img/19.jpg" class="pic animal">
-                    <img src="./img/19.jpg" alt="" />
+                    <img src="./img/icons/19i.jpg" alt="" />
                 </a>
             </div>
         </div>
@@ -100,9 +96,14 @@
         -->
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/fullscreen/lg-fullscreen.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js"></script>
         <script>
-            lightGallery(document.querySelector(".photo-gallery"));
+            lightGallery(document.querySelector(".photo-gallery"), {
+                download: true,
+                speed: 500,
+                plugins: [lgZoom, lgFullscreen],
+            });
         </script>
     </body>
 </html>
