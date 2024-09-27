@@ -61,13 +61,45 @@ body {
 .logo {
     margin-right: auto;
     color: var(--text-color);
-    font-size: 24px;
+    font-size: 26px;
     font-family: "Poppins", sans-serif;
     z-index: 3;
     text-wrap: nowrap;
+    line-height: 1.2;
+    position: relative;
+}
+.logo span {
+    font-family: cursive;
 }
 .logo strong {
     font-weight: 700;
+}
+.logo:hover strong {
+    color: transparent;
+    background-image: linear-gradient(to right, var(--text-color), #00c853);
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: color 1s;
+}
+.logo p {
+    font-size: 12px;
+    position: absolute;
+    left: 27%;
+}
+.logo:hover p {
+    animation-name: example;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+@keyframes example {
+    from {
+        font-size: 12px;
+    }
+    to {
+        font-size: 15px;
+        left: 34%;
+    }
 }
 .dark-mode-btn {
     margin-right: auto;
