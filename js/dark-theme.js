@@ -1,12 +1,13 @@
 const btnDarkMode = document.querySelector(".dark-mode-btn");
+const inner_key = "darkMode";
 
 if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
     EnableDarkTheme();
 }
 
-if (localStorage.getItem(key) === "dark") {
+if (localStorage.getItem(inner_key) === "dark") {
     EnableDarkTheme();
-} else if (localStorage.getItem(key) === "light") {
+} else if (localStorage.getItem(inner_key) === "light") {
     DisableDarkTheme();
 }
 
@@ -16,10 +17,10 @@ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (ev
 
     if (newColorScheme === "dark") {
         EnableDarkTheme();
-        localStorage.setItem(key, "dark");
+        localStorage.setItem(inner_key, "dark");
     } else {
         DisableDarkTheme();
-        localStorage.setItem(key, "light");
+        localStorage.setItem(inner_key, "light");
     }
 });
 
@@ -30,9 +31,9 @@ btnDarkMode.onclick = function () {
 
     const isDark = document.body.classList.toggle("dark");
     if (isDark) {
-        localStorage.setItem(key, "dark");
+        localStorage.setItem(inner_key, "dark");
     } else {
-        localStorage.setItem(key, "light");
+        localStorage.setItem(inner_key, "light");
     }
 };
 
