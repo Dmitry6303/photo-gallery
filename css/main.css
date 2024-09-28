@@ -1,6 +1,11 @@
 @import "./reset.css";
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins&display=swap");
 
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        scroll-behavior: smooth;
+    }
+}
 :root {
     --black: #171718;
     --green: #00c853;
@@ -48,30 +53,6 @@ body {
 /* body {
     padding: 10px;
 } */
-.nav {
-    padding: 25px 0;
-    color: var(--text-color);
-    background-color: var(--footer-header-bg);
-    letter-spacing: normal;
-    margin-bottom: 40px;
-    box-shadow: 3px -50px 110px var(--accent);
-    border-bottom: 1px solid var(--text-color);
-
-    transition: background-color 1s ease-in;
-}
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-.nav-row {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    align-items: center;
-    column-gap: 30px;
-    row-gap: 20px;
-}
 .logo {
     margin-right: auto;
     color: var(--text-color);
@@ -155,6 +136,29 @@ body {
 }
 
 /*     Навигация      */
+.nav {
+    padding: 25px 0;
+    color: var(--text-color);
+    background-color: var(--footer-header-bg);
+    letter-spacing: normal;
+    box-shadow: 3px -50px 110px var(--accent);
+    border-bottom: 1px solid var(--text-color);
+
+    transition: background-color 1s ease-in;
+}
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.nav-row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 30px;
+    row-gap: 20px;
+}
 .nav-list {
     display: flex;
     flex-wrap: wrap;
@@ -193,7 +197,103 @@ body {
     height: 1px;
     background-color: var(--accent);
 }
+/* main page and blocks */
+body.scroll-smooth {
+    /* overflow: hidden; */
+    scroll-behavior: smooth;
+}
+.sections {
+    /* max-width: 1200px; */
+    /* margin: 0 auto; */
+}
+.section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    text-align: center;
+    border-bottom: 1px solid var(--text-color);
+}
+#main-section h1 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: var(--text-color);
+    font-weight: bold;
+}
+#main-section .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+}
+#main-section .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+}
 
+.text-column {
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 20px;
+}
+
+.image-column {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-column img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Остальные секции */
+#section2,
+#section3,
+#section4,
+#section5 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+#section2 .image-column,
+#section4 .image-column {
+    order: 1;
+}
+
+#section3 .image-column,
+#section5 .image-column {
+    order: 2;
+}
+
+#section2 .text-column,
+#section4 .text-column {
+    order: 2;
+}
+
+#section3 .text-column,
+#section5 .text-column {
+    order: 1;
+}
+
+/*/////////*/
 input {
     display: none;
 }
@@ -207,19 +307,9 @@ h1 {
     font-weight: bold;
     font-size: 35px;
     position: relative;
-    margin: 40px 0;
-    white-space: nowrap;
-}
-h1::before {
-    content: "";
-    position: absolute;
-    width: 100px;
-    height: 3px;
-    background-color: green;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: animate 4s linear infinite;
+    /* margin: 40px 0; */
+    text-align: center;
+    /* white-space: nowrap; */
 }
 
 .top-content {

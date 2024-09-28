@@ -21,7 +21,7 @@
             }
         </script>
     </head>
-    <body>
+    <body class="scroll-smooth">
         <nav class="nav">
             <div class="nav-container">
                 <div class="nav-row">
@@ -50,6 +50,62 @@
                 </div>
             </div>
         </nav>
+
+        <main class="sections">
+            <section class="section" id="main-section">
+                <h1>Discovering the beauty of light in every moment</h1>
+                <div class="content">
+                    <div class="text-column">
+                        <!-- <h2>1. The Chase</h2> -->
+                        <p>
+                            Photography is the art of capturing the delicate dance between light and shadow. In every frame, we
+                            chase the fleeting moments of beauty that only light can reveal.
+                        </p>
+                    </div>
+                    <div class="image-column">
+                        <img src="./img/4.jpg" alt="Light Chase" />
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="section2">
+                <div class="image-column">
+                    <img src="./img/24.jpg" alt="Frozen Moment" />
+                </div>
+                <div class="text-column">
+                    <p>
+                        Each photo freezes a moment in time, transforming it into a story that can be revisited again and again.
+                    </p>
+                </div>
+            </section>
+
+            <section class="section" id="section3">
+                <div class="text-column">
+                    <p>Embracing shadows gives depth and contrast, making light even more powerful in photography.</p>
+                </div>
+                <div class="image-column">
+                    <img src="img/7.jpg" alt="Embracing Shadows" />
+                </div>
+            </section>
+
+            <section class="section" id="section4">
+                <div class="image-column">
+                    <img src="img/32.jpg" alt="Personal Connection" />
+                </div>
+                <div class="text-column">
+                    <p>Behind every great photograph is the personal connection of the photographer to the moment.</p>
+                </div>
+            </section>
+
+            <section class="section" id="section5">
+                <div class="text-column">
+                    <p>Infinite exploration in the search for light is a never-ending journey of creativity and discovery.</p>
+                </div>
+                <div class="image-column">
+                    <img src="./img/23.jpg" alt="Infinite Exploration" />
+                </div>
+            </section>
+        </main>
 
         <footer class="footer">
             <div class="container">
@@ -80,6 +136,37 @@
                 speed: 500,
                 plugins: [lgZoom, lgFullscreen],
             });
+
+            // // Скрипт для плавной прокрутки к следующему блоку при нажатии на клавишу стрелки вниз
+            // document.addEventListener("keydown", function (event) {
+            //     if (event.key === "ArrowDown") {
+            //         const currentSection = document.querySelector(".section:target") || document.querySelector(".section");
+            //         const nextSection = currentSection.nextElementSibling;
+            //         if (nextSection) {
+            //             nextSection.scrollIntoView({ behavior: "smooth" });
+            //         }
+            //     }
+            // });
+
+            // // Функция для анимации появления секций при скролле
+            // const sections = document.querySelectorAll(".section");
+
+            // const options = {
+            //     root: null, // Используем viewport
+            //     threshold: 0.1, // Срабатывание при 10% видимости
+            // };
+
+            // const observer = new IntersectionObserver((entries) => {
+            //     entries.forEach((entry) => {
+            //         if (entry.isIntersecting) {
+            //             entry.target.classList.add("visible"); // Добавляем класс для анимации
+            //         }
+            //     });
+            // }, options);
+
+            // sections.forEach((section) => {
+            //     observer.observe(section); // Наблюдаем за каждой секцией
+            // });
         </script>
     </body>
 </html>
