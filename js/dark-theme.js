@@ -1,5 +1,4 @@
 const btnDarkMode = document.querySelector(".dark-mode-btn");
-const key = "darkMode";
 
 if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
     EnableDarkTheme();
@@ -7,7 +6,7 @@ if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").match
 
 if (localStorage.getItem(key) === "dark") {
     EnableDarkTheme();
-} else if (localStorage.getItem("darkMode") === "light") {
+} else if (localStorage.getItem(key) === "light") {
     DisableDarkTheme();
 }
 
@@ -17,17 +16,19 @@ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (ev
 
     if (newColorScheme === "dark") {
         EnableDarkTheme();
-        localStorage.setItem("darkMode", "dark");
+        localStorage.setItem(key, "dark");
     } else {
         DisableDarkTheme();
-        localStorage.setItem("darkMode", "light");
+        localStorage.setItem(key, "light");
     }
 });
 
 btnDarkMode.onclick = function () {
     btnDarkMode.classList.toggle("dark-mode-btn--active");
-    const isDark = document.body.classList.toggle("dark");
+    // Removing class from html tag, after set from html
+    document.documentElement.classList.remove("dark");
 
+    const isDark = document.body.classList.toggle("dark");
     if (isDark) {
         localStorage.setItem(key, "dark");
     } else {
@@ -43,4 +44,5 @@ function EnableDarkTheme() {
 function DisableDarkTheme() {
     btnDarkMode.classList.remove("dark-mode-btn--active");
     document.body.classList.remove("dark");
+    document.documentElement.classList.remove("dark");
 }
