@@ -8,7 +8,9 @@
         <link type="image/x-icon" href="/img/icons/favicon-16x16.png" rel="shortcut icon" />
         <link rel="stylesheet" href="./css/main.css" />
         <link rel="stylesheet" href="./css/about.css" />
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-fullscreen.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-zoom.min.css" />
         <script>
             const key = "darkMode";
 
@@ -198,5 +200,15 @@
         <script src="./js/jquery-3.7.1.min.js"></script>
         <script src="./js/main.js"></script>
         <script src="./js/dark-theme.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/fullscreen/lg-fullscreen.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js"></script>
+        <script>
+            lightGallery(document.querySelector(".photo-gallery"), {
+                download: true,
+                speed: 500,
+                plugins: [lgZoom, lgFullscreen],
+            });
+        </script>
     </body>
 </html>

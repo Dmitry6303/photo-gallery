@@ -7,9 +7,6 @@
 
         <link type="image/x-icon" href="/img/icons/favicon-16x16.png" rel="shortcut icon" />
         <link rel="stylesheet" href="./css/main.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-fullscreen.min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-zoom.min.css" />
 
         <script>
             const key = "darkMode";
@@ -63,14 +60,18 @@
                         </p>
                     </div>
                     <div class="image-column">
-                        <img src="./img/4.jpg" alt="Light Chase" />
+                        <div class="image-wrapper">
+                            <img src="./img/icons/4i.jpg" alt="Light Chase" />
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section class="section" id="section2">
                 <div class="image-column">
-                    <img src="./img/24.jpg" alt="Frozen Moment" />
+                    <div class="image-wrapper">
+                        <img src="./img/icons/24i.jpg" alt="Frozen Moment" />
+                    </div>
                 </div>
                 <div class="text-column">
                     <p>
@@ -84,13 +85,17 @@
                     <p>Embracing shadows gives depth and contrast, making light even more powerful in photography.</p>
                 </div>
                 <div class="image-column">
-                    <img src="img/7.jpg" alt="Embracing Shadows" />
+                    <div class="image-wrapper">
+                        <img src="./img/icons/7i.jpg" alt="Embracing Shadows" />
+                    </div>
                 </div>
             </section>
 
             <section class="section" id="section4">
                 <div class="image-column">
-                    <img src="img/32.jpg" alt="Personal Connection" />
+                    <div class="image-wrapper">
+                        <img src="./img/32.jpg" alt="Personal Connection" />
+                    </div>
                 </div>
                 <div class="text-column">
                     <p>Behind every great photograph is the personal connection of the photographer to the moment.</p>
@@ -102,7 +107,9 @@
                     <p>Infinite exploration in the search for light is a never-ending journey of creativity and discovery.</p>
                 </div>
                 <div class="image-column">
-                    <img src="./img/23.jpg" alt="Infinite Exploration" />
+                    <div class="image-wrapper">
+                        <img src="./img/icons/23i.jpg" alt="Infinite Exploration" />
+                    </div>
                 </div>
             </section>
         </main>
@@ -126,46 +133,61 @@
         <script src="./js/jquery-3.7.1.min.js"></script>
         <script src="./js/main.js"></script>
         <script src="./js/dark-theme.js"></script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/fullscreen/lg-fullscreen.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js"></script>
         <script>
-            lightGallery(document.querySelector(".photo-gallery"), {
-                download: true,
-                speed: 500,
-                plugins: [lgZoom, lgFullscreen],
-            });
+            // // Получаем все секции и текущий индекс
+            // const sections = document.querySelectorAll("section");
+            // let currentSection = 0;
+            // let isScrolling = false;
 
-            // // Скрипт для плавной прокрутки к следующему блоку при нажатии на клавишу стрелки вниз
-            // document.addEventListener("keydown", function (event) {
-            //     if (event.key === "ArrowDown") {
-            //         const currentSection = document.querySelector(".section:target") || document.querySelector(".section");
-            //         const nextSection = currentSection.nextElementSibling;
-            //         if (nextSection) {
-            //             nextSection.scrollIntoView({ behavior: "smooth" });
+            // // Функция для прокрутки до нужной секции
+            // function scrollToSection(index) {
+            //     isScrolling = true; // Устанавливаем флаг, чтобы избежать повторной прокрутки
+            //     document.body.classList.add("no-scroll"); // Отключаем прокрутку body
+            //     sections[index].scrollIntoView({ behavior: "smooth" });
+
+            //     // Таймер для окончания прокрутки (зависит от transition)
+            //     setTimeout(() => {
+            //         isScrolling = false; // Разрешаем прокрутку снова
+            //         document.body.classList.remove("no-scroll"); // Включаем прокрутку body
+            //     }, 800); // Задержка чуть больше времени анимации
+            // }
+
+            // // Функция для прокрутки колесом мыши
+            // document.addEventListener("wheel", function (event) {
+            //     if (!isScrolling) {
+            //         if (event.deltaY > 0) {
+            //             // Прокрутка вниз
+            //             if (currentSection < sections.length - 1) {
+            //                 currentSection++;
+            //                 scrollToSection(currentSection);
+            //             }
+            //         } else {
+            //             // Прокрутка вверх
+            //             if (currentSection > 0) {
+            //                 currentSection--;
+            //                 scrollToSection(currentSection);
+            //             }
             //         }
             //     }
             // });
 
-            // // Функция для анимации появления секций при скролле
-            // const sections = document.querySelectorAll(".section");
-
-            // const options = {
-            //     root: null, // Используем viewport
-            //     threshold: 0.1, // Срабатывание при 10% видимости
-            // };
-
-            // const observer = new IntersectionObserver((entries) => {
-            //     entries.forEach((entry) => {
-            //         if (entry.isIntersecting) {
-            //             entry.target.classList.add("visible"); // Добавляем класс для анимации
+            // // Функция для прокрутки с помощью клавиш
+            // document.addEventListener("keydown", function (event) {
+            //     if (!isScrolling) {
+            //         if (event.key === "ArrowDown") {
+            //             // Прокрутка вниз
+            //             if (currentSection < sections.length - 1) {
+            //                 currentSection++;
+            //                 scrollToSection(currentSection);
+            //             }
+            //         } else if (event.key === "ArrowUp") {
+            //             // Прокрутка вверх
+            //             if (currentSection > 0) {
+            //                 currentSection--;
+            //                 scrollToSection(currentSection);
+            //             }
             //         }
-            //     });
-            // }, options);
-
-            // sections.forEach((section) => {
-            //     observer.observe(section); // Наблюдаем за каждой секцией
+            //     }
             // });
         </script>
     </body>

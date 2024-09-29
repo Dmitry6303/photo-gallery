@@ -1,11 +1,12 @@
 @import "./reset.css";
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins&display=swap");
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
     :root {
         scroll-behavior: smooth;
     }
-}
+} */
+
 :root {
     --black: #171718;
     --green: #00c853;
@@ -22,16 +23,32 @@
     --text-color: var(--black);
     --title-1: var(--accent);
     --dark-mode-btn-color: yellow;
-    --footer-header-bg: var(--white);
+    --header-bg: var(--white);
+    /* --nav-box-shadow: 3px -50px 110px yellow; */
 }
-
 .dark {
     --page-bg: #252526;
-    --footer-header-bg: var(--black);
+    --header-bg: var(--black);
     --text-color: var(--white);
     --dark-mode-btn-color: slategray;
 
     --title-1: var(--white);
+    --nav-box-shadow: 3px -50px 110px var(--accent);
+}
+
+/* Стили для полосы прокрутки */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--page-bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #3e8e41;
 }
 
 html,
@@ -60,6 +77,7 @@ body {
     font-family: "Poppins", sans-serif;
     z-index: 3;
     text-wrap: nowrap;
+    text-align: center;
     line-height: 1.2;
     position: relative;
 }
@@ -78,10 +96,8 @@ body {
 }
 .logo p {
     font-size: 12px;
-    position: absolute;
-    left: 27%;
 }
-.logo:hover p {
+/* .logo:hover p {
     animation-name: example;
     animation-duration: 1s;
     animation-fill-mode: forwards;
@@ -89,13 +105,10 @@ body {
 }
 @keyframes example {
     from {
-        font-size: 12px;
     }
     to {
-        font-size: 15px;
-        left: 34%;
     }
-}
+} */
 .dark-mode-btn {
     margin-right: auto;
     margin-left: 10px;
@@ -137,14 +150,23 @@ body {
 
 /*     Навигация      */
 .nav {
-    padding: 25px 0;
+    padding: 10px 0;
     color: var(--text-color);
-    background-color: var(--footer-header-bg);
+    background-color: var(--header-bg);
     letter-spacing: normal;
-    box-shadow: 3px -50px 110px var(--accent);
+    box-shadow: var(--nav-box-shadow);
     border-bottom: 1px solid var(--text-color);
 
-    transition: background-color 1s ease-in;
+    transition: all 1s ease-in;
+    /* transition: background-color 1s ease-in; */
+
+    /*закреплённое сверху меню*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    width: 100%;
+    height: 68px;
 }
 .nav-container {
     max-width: 1200px;
@@ -200,14 +222,27 @@ body {
 /* main page and blocks */
 body.scroll-smooth {
     /* overflow: hidden; */
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
+}
+/* Отключаем прокрутку для body */
+.no-scroll {
+    overflow: hidden;
 }
 .sections {
-    /* max-width: 1200px; */
-    /* margin: 0 auto; */
+    margin-top: 68px;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+
+    /* overflow: hidden; */
+    /* scroll-snap-type: y mandatory; */
+    /* overflow-y: scroll; */
+    /* height: 100vh; */
 }
 .section {
-    height: 100vh;
+    max-width: 1200px;
+    margin: auto;
+
+    height: calc(100vh - 68px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -236,32 +271,44 @@ body.scroll-smooth {
     width: 100%;
     max-width: 1200px;
 }
-
+#main-section .section {
+    height: 100%;
+}
 .text-column {
-    width: 55%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
     padding: 20px;
 }
-
 .image-column {
-    width: 45%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .image-column img {
     max-width: 100%;
     max-height: 80vh;
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 1s ease-in-out;
+}
+.image-column img:hover {
+    transform: scale(1.2);
+}
+.image-wrapper {
+    overflow: hidden;
+    border-radius: 10px;
 }
 
 /* Остальные секции */
+#section5 {
+    border-bottom: none;
+}
+
 #section2,
 #section3,
 #section4,
@@ -272,7 +319,6 @@ body.scroll-smooth {
     justify-content: space-between;
     padding: 40px;
 }
-
 #section2 .image-column,
 #section4 .image-column {
     order: 1;
@@ -291,6 +337,22 @@ body.scroll-smooth {
 #section3 .text-column,
 #section5 .text-column {
     order: 1;
+}
+/* Дополнительные стили для адаптации */
+@media (max-width: 768px) {
+    .content,
+    .section {
+        flex-direction: column !important;
+    }
+
+    .text-column,
+    .image-column {
+        width: 100%;
+    }
+
+    .section img {
+        max-height: 50vh;
+    }
 }
 
 /*/////////*/
