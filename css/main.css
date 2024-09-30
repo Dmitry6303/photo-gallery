@@ -367,7 +367,7 @@ body.scroll-smooth {
     #section3,
     #section4,
     #section5 {
-        justify-content: space-around;
+        justify-content: center;
     }
 
     .text-column,
