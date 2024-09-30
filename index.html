@@ -141,16 +141,75 @@
             const Scrollbar = window.Scrollbar;
             Scrollbar.use(window.OverscrollPlugin);
 
-            Scrollbar.init(document.querySelector(".sections"), {
+            const scrollObject = Scrollbar.init(document.querySelector(".sections"), {
                 damping: 0.07,
                 plugins: {
                     overscroll: {
                         effect: "glow", // Эффект (может быть "bounce" или "glow")
                         maxOverscroll: 150,
                         glowColor: "black", // Цвет свечения (если используется glow)
+                        // onScroll(position) {},
                     },
                 },
             });
+
+            // Массив секций
+            const sections = document.querySelectorAll("section");
+            let currentSection = 0;
+            let isScrolling = false;
+
+            // Функция для плавной прокрутки к секции
+            function scrollToSection(index) {
+                if (isScrolling) return; // Защита от многократного вызова
+                isScrolling = true;
+
+                const sectionTop = sections[index].offsetTop;
+                console.log(sectionTop);
+                scrollObject.scrollTo(0, sectionTop, 1200, {
+                    callback: () => {
+                        isScrolling = false; // Разрешить дальнейшую прокрутку
+                    },
+                });
+            }
+
+            // Управление прокруткой через стрелки
+            document.addEventListener("keydown", (e) => {
+                if (isScrolling) return;
+
+                if (e.key === "ArrowDown" && currentSection < sections.length - 1) {
+                    currentSection++;
+                    scrollToSection(currentSection);
+                } else if (e.key === "ArrowUp" && currentSection > 0) {
+                    currentSection--;
+                    scrollToSection(currentSection);
+                }
+            });
+            // // Обработчик события прокрутки
+            // scrollObject.addListener((status) => {
+            //     const scrollPos = status.offset.y;
+            //     const sectionHeight = window.innerHeight;
+
+            //     // Определяем текущее направление прокрутки
+            //     let direction = scrollPos > 0 ? "down" : "up";
+
+            //     // Прокрутка вниз
+            //     if (direction === "down" && !isScrolling && currentSection < sections.length - 1) {
+            //         let nextSectionTop = sections[currentSection + 1].offsetTop;
+            //         if (scrollPos >= nextSectionTop - sectionHeight / 2) {
+            //             currentSection++;
+            //             scrollToSection(currentSection);
+            //         }
+            //     }
+
+            //     // Прокрутка вверх
+            //     if (direction === "up" && !isScrolling && currentSection > 0) {
+            //         let prevSectionTop = sections[currentSection - 1].offsetTop;
+            //         if (scrollPos <= prevSectionTop + sectionHeight / 2) {
+            //             currentSection--;
+            //             scrollToSection(currentSection);
+            //         }
+            //     }
+            // });
         </script>
     </body>
 </html>
