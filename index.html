@@ -61,7 +61,7 @@
                     </div>
                     <div class="image-column">
                         <div class="image-wrapper">
-                            <img src="./img/icons/4i.jpg" alt="Light Chase" />
+                            <img src="./img/4.jpg" alt="Light Chase" />
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
             <section class="section" id="section2">
                 <div class="image-column">
                     <div class="image-wrapper">
-                        <img src="./img/icons/24i.jpg" alt="Frozen Moment" />
+                        <img src="./img/24.jpg" alt="Frozen Moment" />
                     </div>
                 </div>
                 <div class="text-column">
@@ -86,7 +86,7 @@
                 </div>
                 <div class="image-column">
                     <div class="image-wrapper">
-                        <img src="./img/icons/7i.jpg" alt="Embracing Shadows" />
+                        <img src="./img/7.jpg" alt="Embracing Shadows" />
                     </div>
                 </div>
             </section>
@@ -108,7 +108,7 @@
                 </div>
                 <div class="image-column">
                     <div class="image-wrapper">
-                        <img src="./img/icons/23i.jpg" alt="Infinite Exploration" />
+                        <img src="./img/23.jpg" alt="Infinite Exploration" />
                     </div>
                 </div>
             </section>
@@ -164,7 +164,6 @@
                 isScrolling = true;
 
                 const sectionTop = sections[index].offsetTop;
-                console.log(sectionTop);
                 scrollObject.scrollTo(0, sectionTop, 1200, {
                     callback: () => {
                         isScrolling = false; // Разрешить дальнейшую прокрутку
@@ -184,32 +183,6 @@
                     scrollToSection(currentSection);
                 }
             });
-            // // Обработчик события прокрутки
-            // scrollObject.addListener((status) => {
-            //     const scrollPos = status.offset.y;
-            //     const sectionHeight = window.innerHeight;
-
-            //     // Определяем текущее направление прокрутки
-            //     let direction = scrollPos > 0 ? "down" : "up";
-
-            //     // Прокрутка вниз
-            //     if (direction === "down" && !isScrolling && currentSection < sections.length - 1) {
-            //         let nextSectionTop = sections[currentSection + 1].offsetTop;
-            //         if (scrollPos >= nextSectionTop - sectionHeight / 2) {
-            //             currentSection++;
-            //             scrollToSection(currentSection);
-            //         }
-            //     }
-
-            //     // Прокрутка вверх
-            //     if (direction === "up" && !isScrolling && currentSection > 0) {
-            //         let prevSectionTop = sections[currentSection - 1].offsetTop;
-            //         if (scrollPos <= prevSectionTop + sectionHeight / 2) {
-            //             currentSection--;
-            //             scrollToSection(currentSection);
-            //         }
-            //     }
-            // });
         </script>
     </body>
 </html>
