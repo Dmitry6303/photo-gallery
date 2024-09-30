@@ -36,18 +36,33 @@
     --nav-box-shadow: 3px -50px 110px var(--accent);
 }
 
-/* Стили для полосы прокрутки */
+/* Стили для основной полосы прокрутки */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 ::-webkit-scrollbar-track {
     background: var(--page-bg);
 }
 ::-webkit-scrollbar-thumb {
     background: var(--accent);
-    border-radius: 10px;
+    border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
+    background: #3e8e41;
+}
+/* Кастомизация полосы прокрутки главной страницы */
+.scrollbar-track,
+.scrollbar-track-x,
+.scrollbar-track-y {
+    background: var(--page-bg) !important;
+}
+.scrollbar-thumb,
+.scrollbar-thumb-x,
+.scrollbar-thumb-y {
+    background: var(--accent) !important;
+    border-radius: 4px !important;
+}
+.scrollbar-thumb:hover {
     background: #3e8e41;
 }
 
@@ -224,10 +239,6 @@ body.scroll-smooth {
     /* overflow: hidden; */
     /* scroll-behavior: smooth; */
 }
-/* Отключаем прокрутку для body */
-.no-scroll {
-    overflow: hidden;
-}
 .sections {
     margin-top: 68px;
     /* margin-left: auto; */
@@ -237,12 +248,14 @@ body.scroll-smooth {
     /* scroll-snap-type: y mandatory; */
     /* overflow-y: scroll; */
     /* height: 100vh; */
+    overflow: auto;
+    height: calc(100vh - 68px);
 }
 .section {
     max-width: 1200px;
     margin: auto;
 
-    height: calc(100vh - 68px);
+    min-height: calc(100vh - 67px);
     display: flex;
     flex-direction: column;
     justify-content: center;

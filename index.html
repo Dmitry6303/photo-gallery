@@ -114,7 +114,7 @@
             </section>
         </main>
 
-        <footer class="footer">
+        <!-- <footer class="footer">
             <div class="container">
                 <div class="footer__wrapper">
                     <ul class="social">
@@ -128,67 +128,29 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> -->
 
         <script src="./js/jquery-3.7.1.min.js"></script>
         <script src="./js/main.js"></script>
         <script src="./js/dark-theme.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.6.3/dist/smooth-scrollbar.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.6.3/dist/plugins/overscroll.js"></script>
+
         <script>
-            // // Получаем все секции и текущий индекс
-            // const sections = document.querySelectorAll("section");
-            // let currentSection = 0;
-            // let isScrolling = false;
+            const Scrollbar = window.Scrollbar;
+            Scrollbar.use(window.OverscrollPlugin);
 
-            // // Функция для прокрутки до нужной секции
-            // function scrollToSection(index) {
-            //     isScrolling = true; // Устанавливаем флаг, чтобы избежать повторной прокрутки
-            //     document.body.classList.add("no-scroll"); // Отключаем прокрутку body
-            //     sections[index].scrollIntoView({ behavior: "smooth" });
-
-            //     // Таймер для окончания прокрутки (зависит от transition)
-            //     setTimeout(() => {
-            //         isScrolling = false; // Разрешаем прокрутку снова
-            //         document.body.classList.remove("no-scroll"); // Включаем прокрутку body
-            //     }, 800); // Задержка чуть больше времени анимации
-            // }
-
-            // // Функция для прокрутки колесом мыши
-            // document.addEventListener("wheel", function (event) {
-            //     if (!isScrolling) {
-            //         if (event.deltaY > 0) {
-            //             // Прокрутка вниз
-            //             if (currentSection < sections.length - 1) {
-            //                 currentSection++;
-            //                 scrollToSection(currentSection);
-            //             }
-            //         } else {
-            //             // Прокрутка вверх
-            //             if (currentSection > 0) {
-            //                 currentSection--;
-            //                 scrollToSection(currentSection);
-            //             }
-            //         }
-            //     }
-            // });
-
-            // // Функция для прокрутки с помощью клавиш
-            // document.addEventListener("keydown", function (event) {
-            //     if (!isScrolling) {
-            //         if (event.key === "ArrowDown") {
-            //             // Прокрутка вниз
-            //             if (currentSection < sections.length - 1) {
-            //                 currentSection++;
-            //                 scrollToSection(currentSection);
-            //             }
-            //         } else if (event.key === "ArrowUp") {
-            //             // Прокрутка вверх
-            //             if (currentSection > 0) {
-            //                 currentSection--;
-            //                 scrollToSection(currentSection);
-            //             }
-            //         }
-            //     }
-            // });
+            Scrollbar.init(document.querySelector(".sections"), {
+                damping: 0.07,
+                plugins: {
+                    overscroll: {
+                        effect: "glow", // Эффект (может быть "bounce" или "glow")
+                        maxOverscroll: 150,
+                        glowColor: "black", // Цвет свечения (если используется glow)
+                    },
+                },
+            });
         </script>
     </body>
 </html>
