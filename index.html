@@ -50,10 +50,8 @@
 
         <main class="sections">
             <section class="section" id="main-section">
-                <h1>Discovering the beauty of light in every moment</h1>
                 <div class="content">
                     <div class="text-column">
-                        <!-- <h2>1. The Chase</h2> -->
                         <p>
                             Photography is the art of capturing the delicate dance between light and shadow. In every frame, we
                             chase the fleeting moments of beauty that only light can reveal.
@@ -65,6 +63,9 @@
                         </div>
                     </div>
                 </div>
+                <h1>Discovering the beauty of light in every moment</h1>
+                <!-- Кнопка со стрелкой -->
+                <div class="scroll-down"></div>
             </section>
 
             <section class="section" id="section2">
@@ -108,9 +109,12 @@
                 </div>
                 <div class="image-column">
                     <div class="image-wrapper">
-                        <img src="./img/icons/23i.jpg" alt="Infinite Exploration" />
+                        <img src="./img/icons/20i.jpg" alt="Infinite Exploration" />
                     </div>
                 </div>
+                <section class="cta-section">
+                    <button class="cta-button" onclick="goToPage('./gallery.html')">Start the Journey</button>
+                </section>
             </section>
         </main>
 
@@ -142,7 +146,7 @@
             Scrollbar.use(window.OverscrollPlugin);
 
             const scrollObject = Scrollbar.init(document.querySelector(".sections"), {
-                damping: 0.07,
+                damping: 0.01,
                 plugins: {
                     overscroll: {
                         effect: "glow", // Эффект (может быть "bounce" или "glow")
@@ -182,6 +186,11 @@
                     currentSection--;
                     scrollToSection(currentSection);
                 }
+            });
+
+            document.querySelector(".scroll-down").addEventListener("click", function () {
+                scrollToSection(1);
+                currentSection = 1;
             });
         </script>
     </body>
