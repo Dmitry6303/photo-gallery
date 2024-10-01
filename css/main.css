@@ -165,7 +165,7 @@ body {
     color: var(--text-color);
     background-color: var(--header-bg);
     letter-spacing: normal;
-    box-shadow: var(--nav-box-shadow);
+    /* box-shadow: var(--nav-box-shadow); */
     border-bottom: 1px solid var(--text-color);
 
     transition: all 1s ease-in;
