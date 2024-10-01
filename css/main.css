@@ -675,6 +675,7 @@ label:hover {
     }
 
     .cta-button {
+        margin-bottom: 50px;
         margin-top: 50px;
     }
 }
