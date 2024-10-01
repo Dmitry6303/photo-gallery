@@ -354,20 +354,20 @@ body {
 }
 #section2 .image-column,
 #section4 .image-column {
-    order: 1;
+    order: 2;
 }
 
 #section3 .image-column {
-    order: 2;
+    order: 1;
 }
 
 #section2 .text-column,
 #section4 .text-column {
-    order: 2;
+    order: 1;
 }
 
 #section3 .text-column {
-    order: 1;
+    order: 2;
 }
 
 /* CTA Section */
