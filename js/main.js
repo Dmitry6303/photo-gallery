@@ -4,3 +4,7 @@ $(document).ready(function () {
         $("body").toggleClass("lock");
     });
 });
+
+function goToPage(url) {
+    window.location.href = url;
+}
