@@ -22,11 +22,6 @@
         </script>
     </head>
     <body>
-        <input type="radio" name="photos" id="check1" checked />
-        <input type="radio" name="photos" id="check2" />
-        <input type="radio" name="photos" id="check3" />
-        <input type="radio" name="photos" id="check4" />
-
         <nav class="nav">
             <div class="nav-container">
                 <div class="nav-row">
@@ -56,7 +51,25 @@
             </div>
         </nav>
 
-        <div class="container">
+        <div class="gallery-filter">
+            <button data-filter="all" class="filter-button active">All</button>
+            <button data-filter="landscapes" class="filter-button">Landscapes</button>
+            <button data-filter="animals" class="filter-button">Animals</button>
+            <button data-filter="astro" class="filter-button">Astrophotos</button>
+            <button data-filter="other" class="filter-button">Other</button>
+        </div>
+
+        <div class="gallery-wrapper">
+            <div id="lightgallery" class="photo-gallery">
+                <!-- Миниатюры фотографий -->
+            </div>
+        </div>
+
+        <div class="load-more">
+            <button id="loadMore" class="load-more-button">Load more</button>
+        </div>
+
+        <!-- <div class="container">
             <div class="top-content">
                 <h3>Photos</h3>
                 <label for="check1">All</label>
@@ -177,7 +190,7 @@
                     <img src="./img/36.jpg" alt="" />
                 </a>
             </div>
-        </div>
+        </div> -->
 
         <footer class="footer">
             <div class="container">
@@ -204,11 +217,95 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/fullscreen/lg-fullscreen.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js"></script>
         <script>
-            lightGallery(document.querySelector(".photo-gallery"), {
-                download: true,
-                speed: 500,
-                plugins: [lgZoom, lgFullscreen],
+            // lightGallery(document.querySelector(".photo-gallery"), {
+            //     download: true,
+            //     speed: 500,
+            //     plugins: [lgZoom, lgFullscreen],
+            // });
+
+            const gallery = document.getElementById("lightgallery");
+            const loadMoreButton = document.getElementById("loadMore");
+            let currentPage = 1;
+            const photosPerPage = 8;
+
+            const photoData = [
+                { thumb: "./img/icons/1i.jpg", full: "./img/1.jpg", category: "landscapes", alt: "" },
+                { thumb: "./img/icons/2i.jpg", full: "./img/2.jpg", category: "landscapes", alt: "" },
+                { thumb: "./img/icons/3i.jpg", full: "./img/3.jpg", category: "landscapes", alt: "" },
+                { thumb: "./img/icons/4i.jpg", full: "./img/4.jpg", category: "landscapes", alt: "" },
+                { thumb: "./img/icons/5i.jpg", full: "./img/5.jpg", category: "landscapes", alt: "" },
+                { thumb: "./img/icons/6i.jpg", full: "./img/6.jpg", category: "other", alt: "" },
+                { thumb: "./img/icons/7i.jpg", full: "./img/7.jpg", category: "landscapes", alt: "" },
+                { thumb: "./img/icons/8i.jpg", full: "./img/8.jpg", category: "other", alt: "" },
+                { thumb: "./img/icons/9i.jpg", full: "./img/9.jpg", category: "other", alt: "" },
+                { thumb: "./img/icons/10i.jpg", full: "./img/10.jpg", category: "other", alt: "" },
+            ];
+
+            // Функция для создания миниатюр
+            function createThumbnailElement(photo) {
+                return `
+                <a href="${photo.full}" class="photo" data-sub-html="${photo.alt}">
+                    <img src="${photo.thumb}" alt="${photo.alt}">
+                </a>
+            `;
+            }
+
+            // Обработчики фильтров
+            document.querySelectorAll(".filter-button").forEach((button) => {
+                button.addEventListener("click", () => {
+                    document.querySelectorAll(".filter-button").forEach((btn) => btn.classList.remove("active"));
+                    button.classList.add("active");
+                    const category = button.getAttribute("data-filter");
+                    currentPage = 1; // Сброс на первую страницу при смене фильтра
+                    gallery.innerHTML = ""; // Очистка галереи
+                    displayThumbnails(currentPage, category);
+                });
             });
+
+            // Отображение миниатюр на текущей странице с фильтрацией
+            function displayThumbnails(page, category) {
+                const filteredPhotos = category === "all" ? photoData : photoData.filter((photo) => photo.category === category);
+
+                const startIndex = (page - 1) * photosPerPage;
+                const endIndex = Math.min(startIndex + photosPerPage, filteredPhotos.length);
+
+                for (let i = startIndex; i < endIndex; i++) {
+                    gallery.innerHTML += createThumbnailElement(filteredPhotos[i]);
+                }
+
+                // Инициализация LightGallery после добавления новых фото
+                lightGallery(gallery, {
+                    selector: "a",
+                    thumbnail: window.innerWidth > 768,
+                    download: true,
+                    speed: 500,
+                    plugins: [lgZoom, lgFullscreen],
+                    mobileSettings: {
+                        controls: true,
+                        showCloseIcon: true,
+                        download: false,
+                        rotate: false,
+                        actualSize: false,
+                    },
+                });
+
+                // Проверяем, есть ли еще фото для загрузки
+                if (endIndex >= filteredPhotos.length) {
+                    loadMoreButton.style.display = "none"; // Скрываем кнопку, если все фото загружены
+                } else {
+                    loadMoreButton.style.display = "";
+                }
+            }
+
+            // Обработчик кнопки "Загрузить больше"
+            loadMoreButton.addEventListener("click", () => {
+                const activeFilter = document.querySelector(".filter-button.active").getAttribute("data-filter");
+                currentPage++;
+                displayThumbnails(currentPage, activeFilter);
+            });
+
+            // Инициализация галереи с фильтром "Все"
+            displayThumbnails(currentPage, "all");
         </script>
     </body>
 </html>
