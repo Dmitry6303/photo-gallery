@@ -84,6 +84,84 @@ const photoData = [
     { thumb: "./img/icons/72i.jpg", full: "./img/72.jpg", category: "landscapes", alt: "" },
     { thumb: "./img/icons/73i.jpg", full: "./img/73.jpg", category: "landscapes", alt: "" },
     { thumb: "./img/icons/74i.jpg", full: "./img/74.jpg", category: "animals", alt: "" },
+    {
+        thumb: "https://fakeimg.pl/300x300/d9d9d9/000000?text=GIF 1",
+        full: "./img/animations/1.gif",
+        category: "animation",
+        alt: "",
+    },
+    {
+        thumb: "https://fakeimg.pl/300x300/d9d9d9/000000?text=GIF 2",
+        full: "./img/animations/2.gif",
+        category: "animation",
+        alt: "",
+    },
+    {
+        thumb: "https://fakeimg.pl/300x300/d9d9d9/000000?text=GIF 3",
+        full: "./img/animations/3.gif",
+        category: "animation",
+        alt: "",
+    },
+    {
+        thumb: "https://fakeimg.pl/300x300/d9d9d9/000000?text=GIF 4",
+        full: "./img/animations/4.gif",
+        category: "animation",
+        alt: "",
+    },
+    {
+        thumb: "https://fakeimg.pl/300x300/d9d9d9/000000?text=GIF 5",
+        full: "./img/animations/5.gif",
+        category: "animation",
+        alt: "",
+    },
+    {
+        thumb: "https://fakeimg.pl/300x300/d9d9d9/000000?text=GIF 6",
+        full: "./img/animations/6.gif",
+        category: "animation",
+        alt: "",
+    },
+    {
+        thumb: "https://fakeimg.pl/300x300/d9d9d9/000000?text=GIF 7",
+        full: "./img/animations/7.gif",
+        category: "animation",
+        alt: "",
+    },
+    {
+        thumb: "https://fakeimg.pl/300x300/d9d9d9/000000?text=GIF 8",
+        full: "./img/animations/8.gif",
+        category: "animation",
+        alt: "",
+    },
+    {
+        thumb: "https://fakeimg.pl/300x300/d9d9d9/000000?text=GIF 9",
+        full: "./img/animations/9.gif",
+        category: "animation",
+        alt: "",
+    },
+    {
+        thumb: "https://fakeimg.pl/300x300/d9d9d9/000000?text=GIF 10",
+        full: "./img/animations/10.gif",
+        category: "animation",
+        alt: "",
+    },
+    {
+        thumb: "https://fakeimg.pl/300x300/d9d9d9/000000?text=GIF 11",
+        full: "./img/animations/11.gif",
+        category: "animation",
+        alt: "",
+    },
+    {
+        thumb: "https://fakeimg.pl/300x300/d9d9d9/000000?text=GIF 12",
+        full: "./img/animations/12.gif",
+        category: "animation",
+        alt: "",
+    },
+    {
+        thumb: "https://fakeimg.pl/300x300/d9d9d9/000000?text=GIF 13",
+        full: "./img/animations/13.gif",
+        category: "animation",
+        alt: "",
+    },
 ];
 
 // Функция для создания миниатюр
