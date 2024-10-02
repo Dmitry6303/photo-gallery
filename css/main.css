@@ -667,6 +667,9 @@ body {
         margin-top: 50px;
     }
 
+    .gallery-wrapper {
+        padding: 0 10px;
+    }
     .photo {
         height: 100px;
         width: 100px;
