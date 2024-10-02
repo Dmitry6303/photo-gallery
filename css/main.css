@@ -409,9 +409,10 @@ body {
 
 /* Галерея */
 .gallery-wrapper {
-    max-width: 1200px;
+    /* max-width: 1200px; */
     height: 100%;
     margin: 0 auto;
+    padding: 0 50px;
 }
 
 /* Стили для адаптивной верстки */
@@ -440,7 +441,7 @@ body {
 }
 
 .filter-button:hover {
-    background-color: #555;
+    background-color: var(--accent);
 }
 
 .photo-gallery {
@@ -451,16 +452,16 @@ body {
 
 .photo {
     border-radius: 10px;
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
     overflow: hidden;
-    margin: 10px;
+    margin: 5px;
     border: 1px solid var(--text-color);
 }
 
 .photo img {
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
     display: block;
     object-fit: cover;
     border-radius: 10px;
@@ -473,6 +474,7 @@ body {
 .load-more {
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 .load-more-button {
     padding: 10px 20px;
@@ -485,9 +487,36 @@ body {
     transition: background-color 0.3s;
 }
 .load-more-button:hover {
-    background-color: #555;
+    background-color: var(--accent);
 }
-
+/*about page*/
+.about-section {
+    margin-top: 68px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.about-content {
+    max-width: 1200px;
+    text-align: center;
+    /* margin: 50px; */
+}
+.about-content h2 {
+    font-size: 3rem;
+    color: var(--text-color);
+    font-weight: bold;
+    font-family: "Satisfy", sans-serif;
+    text-shadow: yellow 0 0 50px;
+}
+.about-content p {
+    margin: 0 0 50px 0;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.5rem;
+    padding: 20px;
+    color: var(--text-color);
+}
 /* Footer */
 .footer {
     background-color: var(--dark-bg);
@@ -636,6 +665,16 @@ body {
     .cta-button {
         margin-bottom: 50px;
         margin-top: 50px;
+    }
+
+    .photo {
+        height: 100px;
+        width: 100px;
+        margin: 2px;
+    }
+    .photo img {
+        height: 100px;
+        width: 100px;
     }
 }
 @keyframes animate {

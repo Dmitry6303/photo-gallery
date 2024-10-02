@@ -204,7 +204,7 @@
                     </ul>
 
                     <div class="copyright">
-                        <p>@ 2024 my-site.com</p>
+                        <p>@ 2024 All rights reserved</p>
                     </div>
                 </div>
             </div>
@@ -216,96 +216,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/fullscreen/lg-fullscreen.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js"></script>
-        <script>
-            // lightGallery(document.querySelector(".photo-gallery"), {
-            //     download: true,
-            //     speed: 500,
-            //     plugins: [lgZoom, lgFullscreen],
-            // });
-
-            const gallery = document.getElementById("lightgallery");
-            const loadMoreButton = document.getElementById("loadMore");
-            let currentPage = 1;
-            const photosPerPage = 8;
-
-            const photoData = [
-                { thumb: "./img/icons/1i.jpg", full: "./img/1.jpg", category: "landscapes", alt: "" },
-                { thumb: "./img/icons/2i.jpg", full: "./img/2.jpg", category: "landscapes", alt: "" },
-                { thumb: "./img/icons/3i.jpg", full: "./img/3.jpg", category: "landscapes", alt: "" },
-                { thumb: "./img/icons/4i.jpg", full: "./img/4.jpg", category: "landscapes", alt: "" },
-                { thumb: "./img/icons/5i.jpg", full: "./img/5.jpg", category: "landscapes", alt: "" },
-                { thumb: "./img/icons/6i.jpg", full: "./img/6.jpg", category: "other", alt: "" },
-                { thumb: "./img/icons/7i.jpg", full: "./img/7.jpg", category: "landscapes", alt: "" },
-                { thumb: "./img/icons/8i.jpg", full: "./img/8.jpg", category: "other", alt: "" },
-                { thumb: "./img/icons/9i.jpg", full: "./img/9.jpg", category: "other", alt: "" },
-                { thumb: "./img/icons/10i.jpg", full: "./img/10.jpg", category: "other", alt: "" },
-            ];
-
-            // Функция для создания миниатюр
-            function createThumbnailElement(photo) {
-                return `
-                <a href="${photo.full}" class="photo" data-sub-html="${photo.alt}">
-                    <img src="${photo.thumb}" alt="${photo.alt}">
-                </a>
-            `;
-            }
-
-            // Обработчики фильтров
-            document.querySelectorAll(".filter-button").forEach((button) => {
-                button.addEventListener("click", () => {
-                    document.querySelectorAll(".filter-button").forEach((btn) => btn.classList.remove("active"));
-                    button.classList.add("active");
-                    const category = button.getAttribute("data-filter");
-                    currentPage = 1; // Сброс на первую страницу при смене фильтра
-                    gallery.innerHTML = ""; // Очистка галереи
-                    displayThumbnails(currentPage, category);
-                });
-            });
-
-            // Отображение миниатюр на текущей странице с фильтрацией
-            function displayThumbnails(page, category) {
-                const filteredPhotos = category === "all" ? photoData : photoData.filter((photo) => photo.category === category);
-
-                const startIndex = (page - 1) * photosPerPage;
-                const endIndex = Math.min(startIndex + photosPerPage, filteredPhotos.length);
-
-                for (let i = startIndex; i < endIndex; i++) {
-                    gallery.innerHTML += createThumbnailElement(filteredPhotos[i]);
-                }
-
-                // Инициализация LightGallery после добавления новых фото
-                lightGallery(gallery, {
-                    selector: "a",
-                    thumbnail: window.innerWidth > 768,
-                    download: true,
-                    speed: 500,
-                    plugins: [lgZoom, lgFullscreen],
-                    mobileSettings: {
-                        controls: true,
-                        showCloseIcon: true,
-                        download: false,
-                        rotate: false,
-                        actualSize: false,
-                    },
-                });
-
-                // Проверяем, есть ли еще фото для загрузки
-                if (endIndex >= filteredPhotos.length) {
-                    loadMoreButton.style.display = "none"; // Скрываем кнопку, если все фото загружены
-                } else {
-                    loadMoreButton.style.display = "";
-                }
-            }
-
-            // Обработчик кнопки "Загрузить больше"
-            loadMoreButton.addEventListener("click", () => {
-                const activeFilter = document.querySelector(".filter-button.active").getAttribute("data-filter");
-                currentPage++;
-                displayThumbnails(currentPage, activeFilter);
-            });
-
-            // Инициализация галереи с фильтром "Все"
-            displayThumbnails(currentPage, "all");
-        </script>
+        <script src="./js/gallery.js"></script>
     </body>
 </html>
