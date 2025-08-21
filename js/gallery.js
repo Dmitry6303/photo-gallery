@@ -181,7 +181,7 @@ const photoData = [
         alt: "",
     },
     {
-        thumb: "hhttps://dummyimage.com/300x300/ffffff/000000.png&text=GIF+11",
+        thumb: "https://dummyimage.com/300x300/ffffff/000000.png&text=GIF+11",
         full: "./img/animations/11.gif",
         category: "animation",
         alt: "",
